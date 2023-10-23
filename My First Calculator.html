@@ -1,0 +1,58 @@
+Upgrade Latihan 6 (yang hanya operasi tambah) dengan operasi kurang, kali, bagi, dan modulus. 
+Tidak ada video tutorial, silahkan kalian berkreasi dengan coding! Happy Challenge!
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+
+    <input type="number" id="inputA" placeholder="Masukkan angka A">
+    <input type="number" id="inputB" placeholder="Masukkan angka B">
+    <button onclick="hitung('tambah')">Tambah</button>
+    <button onclick="hitung('kurang')">Kurang</button>
+    <button onclick="hitung('kali')">Kali</button>
+    <button onclick="hitung('bagi')">Bagi</button>
+    <button onclick="hitung('modulus')">Modulus</button>
+    <p id="hasil">Hasil: </p>
+
+    <script>
+        function hitung(operasi) {
+            var inputA = document.getElementById("inputA");
+            var inputB = document.getElementById("inputB");
+            var hasilLabel = document.getElementById("hasil");
+
+            var a = parseFloat(inputA.value);
+            var b = parseFloat(inputB.value);
+
+            if (!isNaN(a) && !isNaN(b)) {
+                var hasil;
+                switch (operasi) {
+                    case 'tambah':
+                        hasil = a + b;
+                        break;
+                    case 'kurang':
+                        hasil = a - b;
+                        break;
+                    case 'kali':
+                        hasil = a * b;
+                        break;
+                    case 'bagi':
+                        hasil = a / b;
+                        break;
+                    case 'modulus':
+                        hasil = a % b;
+                        break;
+                    default:
+                        hasil = "Operasi tidak valid";
+                        break;
+                }
+                hasilLabel.innerText = "Hasil: " + hasil;
+            } else {
+                hasilLabel.innerText = "nilai input invalid";
+            }
+        }
+    </script>
+</body>
+</html>
